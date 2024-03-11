@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  crypto_recommendation_service:
+    build: .
+    ports:
+      - "8020:8020"
+    networks:
+      my_custom_network:
+        ipv4_address: 172.16.0.51
+
+networks:
+  my_custom_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "172.16.0.0/16"
